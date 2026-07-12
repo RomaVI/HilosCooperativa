@@ -1,122 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Routes, Route, Link } from 'react-router-dom';
+import './App.css';
+import logo from './assets/logo13.jpg';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <section id="nav">
+        <div className='logo'>
+          <div className='imgLogo'>
+            <img src={logo} alt="Logo" />
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+        <div className='txtLogo'>
+          <h1>Hilos del Retorno</h1>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+        
+        <div className='icons'>
+          {/* Envolvemos cada imagen en un Link */}
+          
+          <Link to="/" className='iconItem'>
+            <img src="https://img.icons8.com/?size=100&id=59778&format=png&color=000000" alt="Inicio" />
+          </Link>
 
-      <div className="ticks"></div>
+          <Link to="/info" className='iconItem'>
+            <img src="https://img.icons8.com/?size=100&id=v2LNL7ofGkrB&format=png&color=000000" width="30vh" height="30vh" alt="Información" />
+          </Link>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+          <Link to="/cart" className='iconItem'>
+            <img src="https://img.icons8.com/?size=100&id=61845&format=png&color=000000" alt="Carrito" />
+          </Link>
+
+          <Link to="/perfil" className='iconItem enditem'>
+            <img src="https://img.icons8.com/?size=100&id=4FCpkShJnmAa&format=png&color=000000" alt="Perfil" />
+          </Link>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <main className="content">
+        <Routes>
+          <Route path="/" element={<h2>Bienvenido al Inicio</h2>} />
+          <Route path="/info" element={<h2>Sección de Información</h2>} />
+          <Route path="/cart" element={<h2>Tu Carrito de Compras</h2>} />
+          <Route path="/perfil" element={<h2>Tu Perfil</h2>} />
+        </Routes>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
