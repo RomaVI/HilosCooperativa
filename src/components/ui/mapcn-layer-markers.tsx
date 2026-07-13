@@ -2019,11 +2019,6 @@ const pointsData: GeoJSON.FeatureCollection<GeoJSON.Point, LocationProperties> =
 
 
 
-const locations: Array<SelectedPoint> = pointsData.features.map((feature) => ({
-    ...(feature.properties as LocationProperties),
-    coordinates: feature.geometry.coordinates as [number, number],
-}));
-
 function LayerMarkers() {
     const { map, isLoaded } = useMap();
     const id = useId();
