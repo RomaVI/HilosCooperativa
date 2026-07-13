@@ -1,8 +1,25 @@
+.content {
+  height: 100vh; /* 100vh total - 7vh del nav */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+}
+
+section.slide {
+  height: 100vh;
+  scroll-snap-align: start; /* Aquí es donde el scroll se "pega" */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 #nav {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: calc(100vw);
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;

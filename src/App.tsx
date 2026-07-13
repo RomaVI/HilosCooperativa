@@ -1,8 +1,24 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link ,useNavigate, useLocation} from 'react-router-dom';
+import { useEffect } from 'react';
 import './App.css';
 import logo from './assets/logo13.jpg';
+import { Home } from './pages/Home';
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = (event: WheelEvent) => {
+      // Aquí detectarías la dirección del scroll
+      // Si el scroll es positivo (hacia abajo), navigate('/2')
+      // Si es negativo (hacia arriba), navigate('/1')
+    };
+
+    window.addEventListener('wheel', handleScroll);
+    return () => window.removeEventListener('wheel', handleScroll);
+  }, [navigate, location]);
+
   return (
     <>
       <section id="nav">
@@ -16,8 +32,6 @@ function App() {
         </div>
         
         <div className='icons'>
-          {/* Envolvemos cada imagen en un Link */}
-          
           <Link to="/" className='iconItem'>
             <img src="https://img.icons8.com/?size=100&id=59778&format=png&color=000000" alt="Inicio" />
           </Link>
@@ -38,7 +52,7 @@ function App() {
 
       <main className="content">
         <Routes>
-          <Route path="/" element={<h2>Bienvenido al Inicio</h2>} />
+          <Route path="/" element={<Home />} />
           <Route path="/info" element={<h2>Sección de Información</h2>} />
           <Route path="/cart" element={<h2>Tu Carrito de Compras</h2>} />
           <Route path="/perfil" element={<h2>Tu Perfil</h2>} />

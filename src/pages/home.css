@@ -1,0 +1,172 @@
+/* Configuramos el contenedor principal para que maneje el scroll y el snap */
+.home-page {
+    /* 100vh menos la altura de tu navbar (asumiendo que tu navbar mide unos 10vh o 70px) */
+    /* Si tu navbar está fijo arriba, ajusta este valor */
+    height: 100vh; 
+    width: 100vw;
+    overflow-y: scroll; /* Obligamos a que el scroll ocurra DENTRO de este contenedor */
+    scroll-snap-type: y mandatory; /* Activamos el snap vertical obligatorio */
+    scroll-behavior: smooth; /* Para que el salto sea suave, no brusco */
+    overflow-x: hidden;
+}
+
+/* Configuramos cada sección para que ocupe toda la pantalla y sea un punto de anclaje */
+.struct {
+    height: 100vh; /* Cada bloque ocupa toda la pantalla */
+    width: 100vw;
+    scroll-snap-align: start; /* Aquí es donde la rueda "encaja" al hacer scroll */
+    scroll-snap-stop: always; /* Obliga a parar en cada sección, no salta de la 1 a la 3 de golpe */
+    
+    /* Tus estilos de struct existentes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- A partir de aquí, pegas tu código existente, pero quitando la envoltura de #block --- */
+
+.dblock1 {
+    background-color: #eeeeee;
+    height: 100%; /* Cambiado a 100% porque el padre (.struct) ya dicta la altura */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    .block-struct {
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .txtBlock1 {
+        height: 100%;
+        width: 45vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h4 {
+            font-size: 2.5rem;
+            margin-top: 3rem;
+            margin-left: 3rem;
+            margin-right: 5rem;
+            margin-bottom: 2rem;
+            text-align: -webkit-match-parent;
+            color: #000;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 0.8rem;
+            margin-left: 3rem;
+            margin-right: 5rem;
+            margin-bottom: 3rem;
+            
+            color: #000;
+        }
+    }
+
+    .imgBlock1 {
+        width: 35vw;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}
+
+.block2 {
+    background-color: #ff0000;
+    height: 100%; /* Ajustado al 100% del contenedor padre */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* ... mantén todo el contenido de .block2 ... */
+    p {
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        font-size: 2rem;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        color: #000;
+    }
+
+    .block2Struct {
+        border-radius: 10px;
+        height: 70vh;
+        width: 95vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 5rem;
+
+        .b2item1,
+        .b2item2,
+        .b2item3 {
+            position: relative;
+            width: calc(90vw / 3);
+            height: 70vh;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            .itemText {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 1.5rem;
+                background: transparent;
+                color: white;
+                z-index: 2;
+                pointer-events: none;
+
+                p {
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    margin: 0;
+                    height: 40%;
+                    width: 100%;
+                    background-color: #00000088;
+                }
+
+                h4 {
+                    margin-bottom: 0.5rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.block3 {
+    height: 100%; /* Ajustado al 100% del contenedor padre */
+    width: 100%;
+    background-color: aqua;
+}
