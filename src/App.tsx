@@ -1,24 +1,9 @@
-import { Routes, Route, Link ,useNavigate, useLocation} from 'react-router-dom';
-import { useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import logo from './assets/logo13.jpg';
 import { Home } from './pages/Home';
 
 function App() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = (event: WheelEvent) => {
-      // Aquí detectarías la dirección del scroll
-      // Si el scroll es positivo (hacia abajo), navigate('/2')
-      // Si es negativo (hacia arriba), navigate('/1')
-    };
-
-    window.addEventListener('wheel', handleScroll);
-    return () => window.removeEventListener('wheel', handleScroll);
-  }, [navigate, location]);
-
   return (
     <>
       <section id="nav">
@@ -50,6 +35,7 @@ function App() {
         </div>
       </section>
 
+      {/* Aquí cargamos la página Home, que internamente tiene el Scroll Snap en su CSS */}
       <main className="content">
         <Routes>
           <Route path="/" element={<Home />} />
