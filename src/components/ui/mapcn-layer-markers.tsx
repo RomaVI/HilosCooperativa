@@ -2115,7 +2115,7 @@ function LayerMarkers() {
 function LayerMarkersDemo() {
     return (
         <div className="layer-markers-demo">
-            <button>exel</button>
+            <a href="./fabricas.csv" download="map-r-textil.csv">Download</a>
             <div className="demo-map-shell">
                 <Map center={[-64.19752461958734, -31.420231316685317]} zoom={12}>
                     <LayerMarkers />

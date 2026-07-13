@@ -43,12 +43,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  button{
+  a{
     width: 10vh;
     height: 5vh;
     margin-left: 87%;
     border-radius: 10px;
     background-color: #225314;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
   }
 }
 
