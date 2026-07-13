@@ -2,6 +2,7 @@
 
 import MapLibreGL, { type PopupOptions, type MarkerOptions } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import type * as GeoJSON from 'geojson';
 import "./mapcn-layer-markers.css";
 import {
     createContext,
