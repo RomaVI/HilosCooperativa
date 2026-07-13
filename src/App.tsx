@@ -2,6 +2,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import logo from './assets/logo13.jpg';
 import { Home } from './pages/Home';
+import { LayerMarkersDemo } from '@/components/ui/mapcn-layer-markers'
 
 function App() {
   return (
@@ -18,19 +19,15 @@ function App() {
         
         <div className='icons'>
           <Link to="/" className='iconItem'>
-            <img src="https://img.icons8.com/?size=100&id=59778&format=png&color=000000" alt="Inicio" />
+            <img src="https://img.icons8.com/?size=100&id=v2LNL7ofGkrB&format=png&color=000000" alt="Inicio" />
           </Link>
 
           <Link to="/info" className='iconItem'>
-            <img src="https://img.icons8.com/?size=100&id=v2LNL7ofGkrB&format=png&color=000000" width="30vh" height="30vh" alt="Información" />
+            <img src="https://img.icons8.com/?size=100&id=59778&format=png&color=000000" width="30vh" height="30vh" alt="Información" />
           </Link>
 
-          <Link to="/cart" className='iconItem'>
+          <Link to="/map" className='iconItem enditem'>
             <img src="https://img.icons8.com/?size=100&id=61845&format=png&color=000000" alt="Carrito" />
-          </Link>
-
-          <Link to="/perfil" className='iconItem enditem'>
-            <img src="https://img.icons8.com/?size=100&id=4FCpkShJnmAa&format=png&color=000000" alt="Perfil" />
           </Link>
         </div>
       </section>
@@ -41,7 +38,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<h2>Sección de Información</h2>} />
           <Route path="/cart" element={<h2>Tu Carrito de Compras</h2>} />
-          <Route path="/perfil" element={<h2>Tu Perfil</h2>} />
+          <Route path='/map' element={<LayerMarkersDemo />} />
         </Routes>
       </main>
     </>

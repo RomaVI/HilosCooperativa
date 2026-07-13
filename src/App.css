@@ -1,8 +1,30 @@
 .content {
-  height: 100vh; /* 100vh total - 7vh del nav */
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   scroll-snap-type: y mandatory;
+  padding-top: 7vh;
+  box-sizing: border-box;
+}
+
+.map-page {
+  min-height: calc(100vh - 7vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.map-card {
+  width: min(920px, 100%);
+  min-height: 70vh;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0f172a, #2563eb 55%, #38bdf8);
+  color: white;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 section.slide {
