@@ -45,13 +45,14 @@
   flex-direction: column;
   a{
     width: 10vh;
-    height: 5vh;
+    padding: 0.5rem;
     margin-left: 87%;
     border-radius: 10px;
-    background-color: #225314;
+    background-color: #34a714;
     text-decoration: none;
     color: #000000;
     text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 }
 
@@ -67,17 +68,6 @@
   padding-bottom: 5rem;
 }
 
-@keyframes map-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-0.35rem);
-    opacity: 1;
-  }
-}
 
 .map-popup,
 .marker-popup-content,
@@ -208,4 +198,46 @@
   font-size: 0.75rem;
   font-weight: 600;
   color: #111827;
+}
+.content{
+  overflow: hidden;
+}
+
+@keyframes map-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-0.35rem);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1018px) {
+  .content{
+    .layer-markers-demo{
+      a{
+        margin-right: 2rem;
+      }
+      .demo-map-shell{
+        height: 85vh;
+      }
+    }
+  }
+
+}
+@media (max-width: 768px) {
+  .content{
+    .layer-markers-demo{
+      a{
+        margin-right: 4rem;
+      }
+      .demo-map-shell{
+        height: 85vh;
+      }
+    }
+  }
+
 }
