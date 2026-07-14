@@ -156,3 +156,20 @@ section.slide {
   }
 }
 
+@media (max-width: 768px) {
+  #nav {
+    .txtLogo{
+      h1{
+        font-size: 1.5rem;
+      }
+    }
+    .icons {
+        gap: 0.5rem;
+        margin: 0;
+        .enditem{
+          margin: 0;
+        }
+    }
+}
+
+}

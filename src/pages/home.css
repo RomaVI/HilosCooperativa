@@ -170,3 +170,77 @@
     width: 100%;
     background-color: aqua;
 }
+
+
+@media (max-width: 768px) {
+    /* --- BLOCK 1 --- */
+    .dblock1 {
+        /* Si usas flex en el contenedor principal o en block-struct, lo pasamos a columna */
+        .block-struct {
+            flex-direction: column; 
+        }
+        
+        .txtBlock1 {
+            width: 100vw;
+            height: 50%; /* Mitad de la pantalla para el texto */
+            
+            h4 {
+                font-size: 1.8rem; /* Reducimos la fuente para móviles */
+                margin: 1.5rem; /* Quitamos los márgenes grandes (3rem/5rem) */
+                text-align: center; /* Centrar suele verse mejor en móvil */
+            }
+
+            p {
+                font-size: 1rem;
+                margin: 0 1.5rem 1.5rem 1.5rem;
+                text-align: center;
+            }
+        }
+
+        .imgBlock1 {
+            width: 100vw;
+            height: 50%; /* Mitad de la pantalla para la imagen */
+            justify-content: center; /* Centramos la imagen */
+        }
+    }
+
+    /* --- BLOCK 2 --- */
+    .block2 {
+        /* Ajustamos el título principal del bloque */
+        p {
+            font-size: 1.5rem;
+            height: auto; /* Dejamos que tome el alto necesario, sin forzar 10% */
+            margin: 1rem 0;
+        }
+
+        .block2Struct {
+            flex-direction: column; /* Apilamos las 3 tarjetas verticalmente */
+            height: 80vh; /* Le damos buen espacio dentro del 100vh del padre */
+            width: 90vw;
+            gap: 1rem; /* Reducimos el espacio entre tarjetas */
+            margin-bottom: 1rem;
+
+            .b2item1,
+            .b2item2,
+            .b2item3 {
+                width: 100%; /* Ocupan todo el ancho del contenedor (90vw) */
+                height: auto;
+                flex: 1; /* Esto es clave: hace que las 3 tarjetas se repartan el 80vh en partes iguales */
+
+                .itemText {
+                    padding: 1rem; /* Menos padding interno */
+
+                    h4 {
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+                        font-size: 0.9rem;
+                        height: auto;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
