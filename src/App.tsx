@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import { Home } from './pages/Home';
-import { Prod } from './pages/Productos';
+import { Prod } from './pages/productos';
 import { Proy } from './pages/proyectos';
 import { Catg } from './pages/catalogo';
 import { Ins } from './pages/inspiraciones';

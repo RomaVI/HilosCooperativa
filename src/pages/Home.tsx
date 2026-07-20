@@ -1,4 +1,4 @@
-import { useRef, useState ,useEffect } from 'react';
+import { useRef } from 'react';
 import './Home.css';
 import port from '/placa1.png';
 import vid1 from '../assets/vid1.mp4';
@@ -6,18 +6,9 @@ import vid1 from '../assets/vid1.mp4';
 export function Home() {
     // 1. Creamos la referencia al video y el estado del botón
     const videoRef = useRef(null);
-    const [isIntro, setIsIntro] = useState(true);
-    const [isPlaying, setIsPlaying] = useState(true); // Empieza en true porque tiene autoPlay
 
     // 2. Función que controla la reproducción
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsIntro(false);
-        }, 1500);
 
-        // Limpiamos el timer por si el componente se desmonta antes
-        return () => clearTimeout(timer);
-    }, []);
 
     return (
         <main className="home-page">
