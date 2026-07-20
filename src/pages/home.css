@@ -1,243 +1,152 @@
-/* Configuramos el contenedor principal para que maneje el scroll y el snap */
 .home-page {
     /* 100vh menos la altura de tu navbar (asumiendo que tu navbar mide unos 10vh o 70px) */
     /* Si tu navbar está fijo arriba, ajusta este valor */
-    height: 100vh; 
+    height: 100vh;
     width: 100vw;
-    overflow-y: scroll; /* Obligamos a que el scroll ocurra DENTRO de este contenedor */
-    scroll-snap-type: y mandatory; /* Activamos el snap vertical obligatorio */
-    scroll-behavior: smooth; /* Para que el salto sea suave, no brusco */
+    overflow-y: scroll;
+    /* Obligamos a que el scroll ocurra DENTRO de este contenedor */
+    scroll-snap-type: y mandatory;
+    /* Activamos el snap vertical obligatorio */
+    scroll-behavior: smooth;
+    /* Para que el salto sea suave, no brusco */
     overflow-x: hidden;
-}
 
-/* Configuramos cada sección para que ocupe toda la pantalla y sea un punto de anclaje */
-.struct {
-    height: 100vh; /* Cada bloque ocupa toda la pantalla */
-    width: 100vw;
-    scroll-snap-align: start; /* Aquí es donde la rueda "encaja" al hacer scroll */
-    scroll-snap-stop: always; /* Obliga a parar en cada sección, no salta de la 1 a la 3 de golpe */
-    
-    /* Tus estilos de struct existentes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* --- A partir de aquí, pegas tu código existente, pero quitando la envoltura de #block --- */
-
-.dblock1 {
-    background-color: #eeeeee;
-    height: 100%; /* Cambiado a 100% porque el padre (.struct) ya dicta la altura */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    
-    .block-struct {
-        width: 100vw;
-        height: 100%;
+    #block1 {
+        width: 100%;
+        height: 100vh;
+        /* Nota: aquí tenías 100vw, lo cambié a 100vh para que sea el alto de la pantalla */
         display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
-    .txtBlock1 {
-        height: 100%;
-        width: 45vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        h4 {
-            font-size: 2.5rem;
-            margin-top: 3rem;
-            margin-left: 3rem;
-            margin-right: 5rem;
-            margin-bottom: 2rem;
-            text-align: -webkit-match-parent;
-            color: #000;
-            letter-spacing: 2px;
-            line-height: 1.2;
-        }
-
-        p {
-            font-size: 0.8rem;
-            margin-left: 3rem;
-            margin-right: 5rem;
-            margin-bottom: 3rem;
-            
-            color: #000;
-        }
-    }
-
-    .imgBlock1 {
-        width: 35vw;
-        height: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-
-        img {
+        .grid-galeria {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    }
-}
+            display: grid;
 
-.block2 {
-    background-color: #ff0000;
-    height: 100%; /* Ajustado al 100% del contenedor padre */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+            /* Dividimos el ancho en 4 columnas iguales (25% cada una) */
+            grid-template-columns: repeat(4, 1fr);
 
-    /* ... mantén todo el contenido de .block2 ... */
-    p {
-        width: 100%;
-        height: 10%;
-        text-align: center;
-        font-size: 2rem;
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        color: #000;
-    }
+            /* Dividimos el alto en 2 filas: la primera de 50% y la segunda de 50% */
+            grid-template-rows: 50% 50%;
 
-    .block2Struct {
-        border-radius: 10px;
-        height: 70vh;
-        width: 95vw;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 5rem;
+            /* Sin espacios entre bloques ni bordes externos */
+            gap: 0;
+            padding: 0;
 
-        .b2item1,
-        .b2item2,
-        .b2item3 {
-            position: relative;
-            width: calc(90vw / 3);
-            height: 70vh;
-            overflow: hidden;
-            border-radius: 10px;
-            cursor: pointer;
+            .bloque {
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                display: block;
+                /* Si pones imágenes dentro, esto asegura que se ajusten bien */
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
-            .itemText {
-                position: absolute;
-                inset: 0;
+            /* --- ASIGNACIÓN DE ESPACIOS --- */
+
+            .bloque-1 {
+                /* Ocupa desde la línea de columna 1 hasta la 3 (50%) */
+                grid-column: 1 / 3;
+                /* Ocupa desde la línea de fila 1 hasta la 3 (100% del alto) */
+                grid-row: 1 / 3;
+                overflow: hidden;
+                padding: 0;
+
+                .video-fondo {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                    border-radius: 8px;
+                    /* Opcional, si tiene bordes redondeados en tu diseño */
+                }
+
+                .fullscreen-intro {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: 9999;
+                    border-radius: 0;
+                    /* Quitamos bordes redondeados en pantalla completa */
+                }
+            }
+
+            .bloque-2 {
+                /* Ocupa desde la línea 3 hasta el final (50%) */
+                grid-column: 3 / 5;
+                grid-row: 1 / 2;
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-end;
-                padding: 1.5rem;
-                background: transparent;
-                color: white;
-                z-index: 2;
-                pointer-events: none;
+                justify-content: center;
+                align-items: start;
 
                 p {
-                    color: white;
+                    width: 40%;
+                    text-align: initial;
+                    margin-left: 1rem;
+
+                    font-family: 'Times New Roman', Times, serif;
+                    font-weight: 600;
                     font-size: 1rem;
-                    font-weight: 500;
-                    margin: 0;
-                    height: 40%;
-                    width: 100%;
-                    background-color: #00000088;
+                }
+            }
+
+            .bloque-3 {
+                grid-column: 3 / 5;
+                grid-row: 2 / 3;
+                display: flex;
+                justify-content: end;
+                align-items: start;
+                margin-right: 1rem;
+
+                img {
+                    width: 40%;
+                    min-width: 250px;
+                    height: 95%;
+
                 }
 
-                h4 {
-                    margin-bottom: 0.5rem;
-                    font-size: 1.5rem;
+                p {
+                    margin: 1rem;
                 }
             }
         }
     }
-}
 
-.block3 {
-    height: 100%; /* Ajustado al 100% del contenedor padre */
-    width: 100%;
-    background-color: aqua;
+    #block2{
+        width: 100%;
+        height: 100vh;
+        background-color: red;
+    }
 }
-
 
 @media (max-width: 768px) {
-    /* --- BLOCK 1 --- */
-    .dblock1 {
-        /* Si usas flex en el contenedor principal o en block-struct, lo pasamos a columna */
-        .block-struct {
-            flex-direction: column; 
-        }
-        
-        .txtBlock1 {
-            width: 100vw;
-            height: 50%; /* Mitad de la pantalla para el texto */
-            
-            h4 {
-                font-size: 1.8rem; /* Reducimos la fuente para móviles */
-                margin: 1.5rem; /* Quitamos los márgenes grandes (3rem/5rem) */
-                text-align: center; /* Centrar suele verse mejor en móvil */
-            }
-
-            p {
-                font-size: 1rem;
-                margin: 0 1.5rem 1.5rem 1.5rem;
-                text-align: center;
-            }
-        }
-
-        .imgBlock1 {
-            width: 100vw;
-            height: 50%; /* Mitad de la pantalla para la imagen */
-            justify-content: center; /* Centramos la imagen */
-        }
+    .logo-central {
+        display: none;
     }
 
-    /* --- BLOCK 2 --- */
-    .block2 {
-        /* Ajustamos el título principal del bloque */
-        p {
-            font-size: 1.5rem;
-            height: auto; /* Dejamos que tome el alto necesario, sin forzar 10% */
-            margin: 1rem 0;
-        }
+    .home-page {
+        #block1 {
+            .grid-galeria {
+                display: flex;
+                flex-direction: column;
 
-        .block2Struct {
-            flex-direction: column; /* Apilamos las 3 tarjetas verticalmente */
-            height: 80vh; /* Le damos buen espacio dentro del 100vh del padre */
-            width: 90vw;
-            gap: 1rem; /* Reducimos el espacio entre tarjetas */
-            margin-bottom: 1rem;
+                .bloque-1 {
+                    height: 50%;
+                }
 
-            .b2item1,
-            .b2item2,
-            .b2item3 {
-                width: 100%; /* Ocupan todo el ancho del contenedor (90vw) */
-                height: auto;
-                flex: 1; /* Esto es clave: hace que las 3 tarjetas se repartan el 80vh en partes iguales */
-
-                .itemText {
-                    padding: 1rem; /* Menos padding interno */
-
-                    h4 {
-                        font-size: 1.2rem;
-                    }
-
-                    p {
-                        font-size: 0.9rem;
-                        height: auto;
-                        padding: 0.5rem;
+                .bloque-3 {
+                    img {
+                        height: 100%;
+                        min-height: 300px;
                     }
                 }
             }

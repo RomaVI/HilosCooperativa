@@ -1,44 +1,124 @@
+import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import logo from './assets/logo13.jpg';
 import { Home } from './pages/Home';
-import { LayerMarkersDemo } from '@/components/ui/mapcn-layer-markers'
+import { Prod } from './pages/Productos';
+import { Proy } from './pages/proyectos';
+import { Catg } from './pages/catalogo';
+import { Ins } from './pages/inspiraciones';
+import { Sos  } from './pages/sostenibilidad';
+import { Minds  } from './pages/minds';
+import { AyniM  } from './pages/ayniM';
+import { Client } from './pages/atcliente';
+import   logo   from './assets/Ayni.svg';
+import { LayerMarkersDemo } from '@/components/ui/mapcn-layer-markers';
+
+
+
 
 function App() {
+  // Estado menu
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <>
-      <section id="nav">
-        <div className='logo'>
-          <div className='imgLogo'>
-            <img src={logo} alt="Logo" />
-          </div>
-        </div>
-        <div className='txtLogo'>
-          <h1>Hilos del Retorno</h1>
-        </div>
-        
-        <div className='icons'>
-          <Link to="/" className='iconItem'>
-            <img src="https://img.icons8.com/?size=100&id=v2LNL7ofGkrB&format=png&color=000000" alt="Inicio" />
-          </Link>
+      {/* 1. menu*/}
+      <header className="ayni-header">
+        <button className="menu-btn" onClick={toggleMenu}>
+          {isOpen ? 'CERRAR' : 'MENÚ'}
+        </button>
+      </header>
+      <div className={`menu-wrapper ${isOpen ? 'open' : ''}`}>
 
-          <Link to="/info" className='iconItem'>
-            <img src="https://img.icons8.com/?size=100&id=59778&format=png&color=000000" width="30vh" height="30vh" alt="Información" />
-          </Link>
+        {/* El fondo difuminado (si haces clic en el fondo, también se cierra) */}
+        <div className="menu-overlay" onClick={toggleMenu}></div>
 
-          <Link to="/map" className='iconItem enditem'>
-            <img src="https://img.icons8.com/?size=100&id=61845&format=png&color=000000" alt="Carrito" />
-          </Link>
+        {/* La caja donde irán los enlaces en el siguiente paso */}
+        <div className="menu-box">
+          {/* Primer bloque */}
+          <ul>
+            <li>
+              <Link to="/inspiraciones" onClick={toggleMenu}>
+                <span>INSPIRACIONES</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/productos" onClick={toggleMenu}>
+                <span>PRODUCTOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/proyectos" onClick={toggleMenu}>
+                <span>PROYECTOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/minds" onClick={toggleMenu}>
+                <span>MINDS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/catalogos" onClick={toggleMenu}>
+                <span>CATÁLOGOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/sostenibilidad" onClick={toggleMenu}>
+                <span>SOSTENIBILIDAD</span>
+              </Link>
+            </li>
+          </ul>
+
+          {/* Segundo bloque */}
+          <ul>
+            <li>
+              <Link to="/ayni-mondo" onClick={toggleMenu}>
+                <span>AYNI MONDO</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/atencion-al-cliente" onClick={toggleMenu}>
+                <span>ATENCIÓN AL CLIENTE</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/map" onClick={toggleMenu}>
+                <span>PUNTOS DE VENTA</span>
+              </Link>
+            </li>
+          </ul>
+
+          {/* Tercer bloque: La marca */}
+          <ul className="menu-brand">
+            <li>
+              <Link to="/" onClick={toggleMenu}>
+                <span>AYNI&C</span>
+              </Link>
+            </li>
+          </ul>
         </div>
-      </section>
 
-      {/* Aquí cargamos la página Home, que internamente tiene el Scroll Snap en su CSS */}
+      </div>
+
+      {/* 2. EL CONTENIDO DE TU PÁGINA */}
+      <div className="logo-central">
+        <img src={logo} alt="Ayni&C Logo" className="logo-svg" />
+      </div>
       <main className="content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/info" element={<h2>Sección de Información</h2>} />
           <Route path="/cart" element={<h2>Tu Carrito de Compras</h2>} />
-          <Route path='/map' element={<LayerMarkersDemo />} />
+          <Route path="/productos" element={<Prod/>} />
+          <Route path="/proyectos" element={<Proy/>} />
+          <Route path="/minds" element={<Minds/>} />
+          <Route path="/ayni-mondo" element={<AyniM/>} />
+          <Route path="/atencion-al-cliente" element={<Client/>} />
+          <Route path="/catalogos" element={<Catg/>} />
+          <Route path="/inspiraciones" element={<Ins/>} />
+          <Route path="/sostenibilidad" element={<Sos/>} />
+          <Route path="/map" element={<LayerMarkersDemo/>} />
         </Routes>
       </main>
     </>
