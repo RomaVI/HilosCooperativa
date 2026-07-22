@@ -42,7 +42,23 @@ export function Home() {
                 </div>
             </section>
             <section id='block2' className="struct">
-
+                <div className="block2-1">
+                    <div className="img1">
+                        <p>3</p>
+                        <div className="descr">
+                        <img src={port} alt="" />
+                        <p>Lorem ipsum, dolor sit amet.</p>
+                        </div>
+                    </div>
+                    <div className="img2">
+                        <p>5</p>
+                        <div className="descr">
+                        <img src={port} alt="" />
+                        <p>Lorem ipsum, dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="block2-2"></div>
             </section>
         </main>
     )
