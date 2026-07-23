@@ -72,7 +72,7 @@ export function Home() {
 
                     <div className="bloque bloque-2">
                         <p> "Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos productos de sumo cuidado y calidad a partir de los residuos que la tierra no puede consumir."</p>
-                        <p> Sé parte de la solución.</p>
+                        <p className='bloque-2p'> Sé parte de la solución.</p>
                     </div>
 
                     <div className="bloque bloque-3">
@@ -105,7 +105,8 @@ export function Home() {
                 </div>
                 <div className="block2-2">
                     <div className="contextb22 animar-subida">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta quasi impedit eligendi a corrupti fugiat ipsa! Inventore architecto perferendis quas vitae officia corporis accusamus eligendi tempora ipsum, hic rem.
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta quasi impedit eligendi a corrupti fugiat ipsa! Inventore architecto perferendis quas vitae officia corporis accusamus eligendi tempora ipsum, hic rem.
                         </p>
                         <a href="">
                             referent
@@ -117,7 +118,12 @@ export function Home() {
                             <div className="cimgg2-2">
                                 <img src={port} alt="" />
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, corrupti libero magni iusto ipsum et obcaecati error fuga </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            </p>
+                            <p>
+                                Exercitationem, corrupti libero magni iusto ipsum et obcaecati error fuga 
+                            </p>
                         </div>
                     </div>
                 </div>
