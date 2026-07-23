@@ -42,6 +42,7 @@ const cooperativaLaVictoria = "#370065";
 
 
 
+
 const defaultStyles = {
     dark: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
     light: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
@@ -2428,7 +2429,7 @@ function LayerMarkers() {
 function LayerMarkersDemo() {
     return (
         <div className="layer-markers-demo">
-            <a href="/lugares_convertidos.csv" download="map-r-textil.csv">Download</a>
+            <a href="/lugares_convertidos.csv" download="map-r-textil.csv" className="a-layer">Download</a>
             <div className="demo-map-shell">
                 <Map center={[-64.19752461958734, -31.420231316685317]} zoom={10}>
                     <LayerMarkers />

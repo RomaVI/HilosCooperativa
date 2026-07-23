@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 import { Home } from './pages/Home';
 import { Prod } from './pages/productos';
@@ -19,13 +19,14 @@ import { LayerMarkersDemo } from '@/components/ui/mapcn-layer-markers';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
-
+  const location = useLocation();
+  const isMap = location.pathname === '/map';
   return (
     <>
       {/* =========================================
           1. CABECERA Y MENÚ (Siempre arriba)
           ========================================= */}
-      <header className="ayni-header">
+      <header className={`ayni-header ${isMap ? 'home-theme' : ''}`}>
         <button className="menu-btn" onClick={toggleMenu}>
           {isOpen ? 'CERRAR' : 'MENÚ'}
         </button>
@@ -91,10 +92,6 @@ function App() {
               </Link>
             </li>
           </ul>
-
-
-
-          {/* Tercer bloque: La marca */}
 
           <ul className="menu-brand">
 

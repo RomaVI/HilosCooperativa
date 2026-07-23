@@ -67,7 +67,7 @@ export function Home() {
                 <div className="grid-galeria">
 
                     <div className="bloque bloque-1">
-                        <video ref={videoRef} src={vid1} autoPlay loop muted playsInline className="video-fondo"></video>
+                        <video ref={videoRef} src={vid1} poster={port} autoPlay loop muted playsInline className="video-fondo"></video>
                     </div>
 
                     <div className="bloque bloque-2">
