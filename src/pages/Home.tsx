@@ -1,4 +1,4 @@
-
+import { useRef, useState, useEffect } from 'react';
 import './Home.css';
 import port from '/placa1.png';
 import port2 from '/placa2.webp';
@@ -6,20 +6,45 @@ import port3 from '/placa3.webp';
 import vid1 from '/vid1.mp4';
 
 export function Home() {
-    // 1. Creamos la referencia al video y el estado del botón
+    const videoRef = useRef(null);
 
 
-    // 2. Función que controla la reproducción
+    // 1. NUEVO: Estado para saber si el bloque está expandido (200%) o normal (100%)
+    const [isWide, setIsWide] = useState(true);
+
+    // 2. NUEVO: Efecto que controla el tiempo y los eventos
+    useEffect(() => {
+        // Función que encoge el bloque al 100%
+        const shrinkBlock = () => setIsWide(false);
+
+        // a) Temporizador: se encoge automáticamente a los 2000 milisegundos (2 segundos)
+        const timer = setTimeout(shrinkBlock, 2000);
+
+        // b) Eventos: se encoge si el usuario hace clic o toca una tecla antes de los 2 segundos
+        window.addEventListener('mousedown', shrinkBlock);
+        window.addEventListener('keydown', shrinkBlock);
+
+        // Limpiamos la memoria cuando el componente se desmonta
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('mousedown', shrinkBlock);
+            window.removeEventListener('keydown', shrinkBlock);
+        };
+    }, []); // Los corchetes vacíos indican que esto se ejecuta solo una vez al cargar la página
 
 
     return (
         <main className="home-page">
-            <section id='block1' className="struct">
+            <section id='block1'
+                className="struct"
+                style={{
+                    width: isWide ? '200%' : '100%',
+                    transition: 'width 1.5s cubic-bezier(0.25, 1, 0.5, 1)' // Animación súper suave y premium
+                }}>
                 <div className="grid-galeria">
 
                     <div className="bloque bloque-1">
-                        <video src={vid1}></video>
-
+                        <video ref={videoRef} src={vid1} autoPlay loop muted playsInline className="video-fondo"></video>
                     </div>
 
                     <div className="bloque bloque-2">
