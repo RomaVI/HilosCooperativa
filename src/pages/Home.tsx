@@ -1,11 +1,13 @@
-import { useRef } from 'react';
+
 import './Home.css';
 import port from '/placa1.png';
-import vid1 from '../assets/vid1.mp4';
+import port2 from '/placa2.webp';
+import port3 from '/placa3.webp';
+import vid1 from '/vid1.mp4';
 
 export function Home() {
     // 1. Creamos la referencia al video y el estado del botón
-    const videoRef = useRef(null);
+
 
     // 2. Función que controla la reproducción
 
@@ -14,19 +16,10 @@ export function Home() {
         <main className="home-page">
             <section id='block1' className="struct">
                 <div className="grid-galeria">
-                    
-                    <div className="bloque bloque-1">
-                        <video 
-                            ref={videoRef}
-                            src={vid1} 
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline 
-                            className="video-fondo"
-                        ></video>
 
-                    
+                    <div className="bloque bloque-1">
+                        <video src={vid1}></video>
+
                     </div>
 
                     <div className="bloque bloque-2">
@@ -36,29 +29,50 @@ export function Home() {
 
                     <div className="bloque bloque-3">
                         <p>1.</p>
-                        <img src={port} alt="" />
+                        <img src={port3} alt="" />
                     </div>
-                    
+
                 </div>
             </section>
             <section id='block2' className="struct">
                 <div className="block2-1">
                     <div className="img1">
-                        <p>3</p>
-                        <div className="descr">
-                        <img src={port} alt="" />
-                        <p>Lorem ipsum, dolor sit amet.</p>
+                        <p className='pim'>(3)</p>
+                        <div className="cimg">
+                            <div className="cimgg">
+                                <img src={port3} alt="" />
+                            </div>
+                            <p>lorem descrigtionas aimg astergert.</p>
                         </div>
                     </div>
                     <div className="img2">
-                        <p>5</p>
-                        <div className="descr">
-                        <img src={port} alt="" />
-                        <p>Lorem ipsum, dolor sit amet.</p>
+                        <p className='pim'>(5)</p>
+                        <div className="cimg">
+                            <div className="cimgg">
+                                <img src={port2} alt="" />
+                            </div>
+                            <p>lorem descrigtionas aimg astergert.</p>
                         </div>
                     </div>
                 </div>
-                <div className="block2-2"></div>
+                <div className="block2-2">
+                    <div className="contextb22">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta quasi impedit eligendi a corrupti fugiat ipsa! Inventore architecto perferendis quas vitae officia corporis accusamus eligendi tempora ipsum, hic rem.
+                        </p>
+                        <a href="">
+                            referent
+                        </a>
+                    </div>
+                    <div className="img2-2">
+                        <p>(4)</p>
+                        <div className="cimg2-2">
+                            <div className="cimgg2-2">
+                                <img src={port} alt="" />
+                            </div>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, corrupti libero magni iusto ipsum et obcaecati error fuga </p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     )

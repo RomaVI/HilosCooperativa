@@ -1,14 +1,8 @@
 .home-page {
-    /* 100vh menos la altura de tu navbar (asumiendo que tu navbar mide unos 10vh o 70px) */
-    /* Si tu navbar está fijo arriba, ajusta este valor */
-    height: 100vh;
+
     width: 100vw;
-    overflow-y: scroll;
-    /* Obligamos a que el scroll ocurra DENTRO de este contenedor */
-    scroll-snap-type: y mandatory;
-    /* Activamos el snap vertical obligatorio */
-    scroll-behavior: smooth;
-    /* Para que el salto sea suave, no brusco */
+    position: relative;
+    min-height: 100vh;
     overflow-x: hidden;
 
     #block1 {
@@ -123,78 +117,74 @@
 
     #block2 {
         width: 100%;
-        height: 100vh;
-        
+        margin-top: 12rem;
         display: flex;
-
         .block2-1 {
+
             width: 50%;
-            height: 100vw;
-            
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
 
-            .img1 {
+            overflow: hidden;
+            .img1{
+                width: 100%;
                 display: flex;
-                margin-bottom: 8rem;
+                padding-left: 12rem;
 
-                p {
-                    color: black;
+                p{
                     margin: 1rem;
-                    margin-left: 10rem;
                 }
+                .cimg{
+                    width: 45%;
+                    aspect-ratio: 2 / 3;
 
-                .descr {
-                    
-                    overflow: hidden;
-                    width: 50%;
-                    height: 45vh;
-                    display: flex;
-                    flex-direction: column;
-
-                    img {
+                    .cimgg{
+                        
+                        height: 90%;
                         width: 100%;
-                        min-width: 250px;
-                        height: 100%;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
-
-                    p {
-
-                        text-align: start;
-                        margin: 1rem;
+                    p{
+                        margin-top:1rem; 
+                        margin-left: 0;
                     }
                 }
             }
-
             .img2 {
+                width: 100%;
+                width: 100%;
                 display: flex;
+                padding-top: 15rem;
+                padding-left: 12rem;
 
-                p {
-                    color: black;
+                p{
                     margin: 1rem;
-                    margin-left: 10rem;
                 }
+                .cimg{
+                    width: 60%;
+                    aspect-ratio: 2 / 3;
 
-                .descr {
-                    
-                    overflow: hidden;
-                    width: 65%;
-                    height: 55vh;
-                    display: flex;
-                    flex-direction: column;
-
-                    img {
+                    .cimgg{
+                        
+                        height: 90%;
                         width: 100%;
-                        min-width: 250px;
-                        height: 100%;
-
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
-
-                    p {
-                        text-align: start;
-                        margin: 1rem;
+                    p{
+                        margin-top:1rem; 
+                        margin-left: 0;
                     }
                 }
             }
@@ -202,7 +192,34 @@
 
         .block2-2 {
             width: 50%;
-            height: 100vw;
+            .contextb22{
+                margin: 7rem;
+                font-size: 1rem;
+                font-family: 'Times New Roman', Times, serif;
+                span{
+                    color: black;
+                    
+                }
+                a{
+                    color: black;
+                }
+            }
+            .img2-2{
+                margin-left: 7rem;
+                margin-right: 1rem;
+                display: flex;
+                .cimg2-2{
+                    
+                    width: 100%;
+                    height: 80vh;
+                    img{
+                        object-fit:cover;
+                        width: 100%;
+                        height: 80vh;
+                        
+                    }
+                }
+            }
         }
     }
 }
