@@ -1,5 +1,4 @@
 .home-page {
-
     width: 100vw;
     position: relative;
     min-height: 100vh;
@@ -87,7 +86,7 @@
                     text-align: initial;
                     margin-left: 1rem;
 
-                    font-family: 'Times New Roman', Times, serif;
+                    font-family: "Times New Roman", Times, serif;
                     font-weight: 600;
                     font-size: 1rem;
                 }
@@ -105,7 +104,6 @@
                     width: 40%;
                     min-width: 250px;
                     height: 95%;
-
                 }
 
                 p {
@@ -119,8 +117,8 @@
         width: 100%;
         margin-top: 12rem;
         display: flex;
-        .block2-1 {
 
+        .block2-1 {
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -128,35 +126,39 @@
             justify-content: flex-start;
 
             overflow: hidden;
-            .img1{
+
+            .img1 {
                 width: 100%;
                 display: flex;
                 padding-left: 12rem;
 
-                p{
+                p {
                     margin: 1rem;
                 }
-                .cimg{
+
+                .cimg {
                     width: 45%;
                     aspect-ratio: 2 / 3;
 
-                    .cimgg{
-                        
+                    .cimgg {
                         height: 90%;
                         width: 100%;
                         overflow: hidden;
-                        img{
+
+                        img {
                             height: 100%;
                             width: 100%;
                             object-fit: cover;
                         }
                     }
-                    p{
-                        margin-top:1rem; 
+
+                    p {
+                        margin-top: 1rem;
                         margin-left: 0;
                     }
                 }
             }
+
             .img2 {
                 width: 100%;
                 width: 100%;
@@ -164,26 +166,28 @@
                 padding-top: 15rem;
                 padding-left: 12rem;
 
-                p{
+                p {
                     margin: 1rem;
                 }
-                .cimg{
+
+                .cimg {
                     width: 60%;
                     aspect-ratio: 2 / 3;
 
-                    .cimgg{
-                        
+                    .cimgg {
                         height: 90%;
                         width: 100%;
                         overflow: hidden;
-                        img{
+
+                        img {
                             height: 100%;
                             width: 100%;
                             object-fit: cover;
                         }
                     }
-                    p{
-                        margin-top:1rem; 
+
+                    p {
+                        margin-top: 1rem;
                         margin-left: 0;
                     }
                 }
@@ -192,36 +196,94 @@
 
         .block2-2 {
             width: 50%;
-            .contextb22{
+
+            .contextb22 {
                 margin: 7rem;
                 font-size: 1rem;
-                font-family: 'Times New Roman', Times, serif;
-                span{
+                font-family: "Times New Roman", Times, serif;
+
+                span {
                     color: black;
-                    
                 }
-                a{
+
+                a {
                     color: black;
                 }
             }
-            .img2-2{
+
+            .img2-2 {
                 margin-left: 7rem;
                 margin-right: 1rem;
                 display: flex;
-                .cimg2-2{
-                    
+
+                .cimg2-2 {
                     width: 100%;
                     height: 80vh;
-                    img{
-                        object-fit:cover;
+
+                    img {
+                        object-fit: cover;
                         width: 100%;
                         height: 80vh;
-                        
                     }
                 }
             }
         }
     }
+}
+
+/* Clase base: el elemento está invisible y empujado hacia abajo */
+.animar-subida {
+    opacity: 0;
+    transform: translateY(40px);
+
+    /* Una transición suave y elegante de casi 1 segundo */
+    transition:
+        opacity 0.8s ease-out,
+        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Clase activa: el elemento aparece y sube a su posición original */
+.animar-subida.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1000px) {
+    .home-page {
+        #block2 {
+
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            .block2-1 {
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                margin-left: 0;
+                overflow: none;
+
+                .img1 {
+                    padding-left: 6rem;
+                    
+                    .cimg {
+                        min-width: 300px;
+                    }
+                    
+                }
+                .img2 {
+                    padding-left: 6rem;
+                    .cimg {
+                        min-width: 300px;
+                    }
+                    
+                }
+            }
+            .block2-2{
+                width: 100%;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 768px) {

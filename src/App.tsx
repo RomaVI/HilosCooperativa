@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import { Home } from './pages/Home';
 import { Prod } from './pages/productos';
@@ -34,7 +34,77 @@ function App() {
       <div className={`menu-wrapper ${isOpen ? 'open' : ''}`}>
         <div className="menu-overlay" onClick={toggleMenu}></div>
         <div className="menu-box">
-          {/* ... todo el código de tus <ul> y <Link> ... */}
+
+          {/* Primer bloque */}
+
+          <ul>
+            <li>
+              <Link to="/inspiraciones" onClick={toggleMenu}>                
+              <span>INSPIRACIONES</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/productos" onClick={toggleMenu}>
+                <span>PRODUCTOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/proyectos" onClick={toggleMenu}>
+                <span>PROYECTOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/minds" onClick={toggleMenu}>
+                <span>MINDS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/catalogos" onClick={toggleMenu}>
+                <span>CATÁLOGOS</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/sostenibilidad" onClick={toggleMenu}>
+                <span>SOSTENIBILIDAD</span>
+              </Link>
+            </li>
+          </ul>
+
+
+
+          {/* Segundo bloque */}
+
+          <ul>
+            <li>
+              <Link to="/ayni-mondo" onClick={toggleMenu}>
+                <span>AYNI MONDO</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/atencion-al-cliente" onClick={toggleMenu}>
+                <span>ATENCIÓN AL CLIENTE</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/map" onClick={toggleMenu}>
+                <span>PUNTOS DE VENTA</span>
+              </Link>
+            </li>
+          </ul>
+
+
+
+          {/* Tercer bloque: La marca */}
+
+          <ul className="menu-brand">
+
+            <li>
+              <Link to="/" onClick={toggleMenu}>
+                <span>AYNI&C</span>
+              </Link>
+            </li>
+          </ul>
+
         </div>
       </div>
 

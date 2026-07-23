@@ -11,7 +11,30 @@ export function Home() {
 
     // 1. NUEVO: Estado para saber si el bloque está expandido (200%) o normal (100%)
     const [isWide, setIsWide] = useState(true);
+    useEffect(() => {
+        // Configuramos el "vigilante"
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                // Si el elemento entra en la pantalla...
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // Le agrega la clase que lo hace subir
+                    
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, { 
+            threshold: 0.1 // Se activa cuando al menos el 10% de la foto es visible
+        });
 
+        // Buscamos todos los elementos con la clase 'animar-subida'
+        const elementos = document.querySelectorAll('.animar-subida');
+        elementos.forEach((el) => observer.observe(el));
+
+        // Limpieza de memoria
+        return () => {
+            elementos.forEach((el) => observer.unobserve(el));
+        };
+    }, []);
     // 2. NUEVO: Efecto que controla el tiempo y los eventos
     useEffect(() => {
         // Función que encoge el bloque al 100%
@@ -70,7 +93,7 @@ export function Home() {
                             <p>lorem descrigtionas aimg astergert.</p>
                         </div>
                     </div>
-                    <div className="img2">
+                    <div className="img2 animar-subida">
                         <p className='pim'>(5)</p>
                         <div className="cimg">
                             <div className="cimgg">
@@ -81,14 +104,14 @@ export function Home() {
                     </div>
                 </div>
                 <div className="block2-2">
-                    <div className="contextb22">
+                    <div className="contextb22 animar-subida">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis dicta quasi impedit eligendi a corrupti fugiat ipsa! Inventore architecto perferendis quas vitae officia corporis accusamus eligendi tempora ipsum, hic rem.
                         </p>
                         <a href="">
                             referent
                         </a>
                     </div>
-                    <div className="img2-2">
+                    <div className="img2-2 animar-subida">
                         <p>(4)</p>
                         <div className="cimg2-2">
                             <div className="cimgg2-2">
