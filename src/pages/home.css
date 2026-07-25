@@ -30,15 +30,7 @@
                 align-items: center;
                 justify-content: center;
 
-                /* Si pones imágenes dentro, esto asegura que se ajusten bien */
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
             }
-
-            /* --- ASIGNACIÓN DE ESPACIOS --- */
 
             .bloque-1 {
                 /* Ocupa desde la línea de columna 1 hasta la 3 (50%) */
@@ -83,6 +75,7 @@
 
                 p {
                     width: 40%;
+                    min-width: 40px;
                     text-align: initial;
                     margin-left: 1rem;
 
@@ -100,10 +93,21 @@
                 align-items: start;
                 margin-right: 1rem;
 
-                img {
+                /* 1. Le damos las dimensiones al contenedor picture */
+                picture {
                     width: 40%;
                     min-width: 250px;
                     height: 95%;
+                    display: block;
+                    /* Ayuda a evitar comportamientos extraños de inline */
+                }
+
+                /* 2. La imagen simplemente llena su contenedor */
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    /* Opcional: evita que la imagen se estire feo si cambia la proporción */
                 }
 
                 p {
@@ -163,7 +167,7 @@
                 width: 100%;
                 width: 100%;
                 display: flex;
-                padding-top: 15rem;
+                padding-top: 7.5rem;
                 padding-left: 12rem;
 
                 p {
@@ -172,15 +176,12 @@
 
                 .cimg {
                     width: 60%;
-                    aspect-ratio: 2 / 3;
-
+                    padding-bottom: 12rem;
                     .cimgg {
-                        height: 90%;
                         width: 100%;
                         overflow: hidden;
 
-                        img {
-                            height: 100%;
+                        video {
                             width: 100%;
                             object-fit: cover;
                         }
@@ -225,6 +226,59 @@
                         width: 100%;
                         height: 80vh;
                     }
+                }
+            }
+        }
+    }
+
+    #block3 {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+
+        .block3-1 {
+            width: 50%;
+
+            h3 {
+                margin-top: 3rem;
+                margin-left: 2rem;
+                font-weight: 400;
+            }
+
+            p {
+                margin-left: 2rem;
+
+            }
+
+            a {
+                margin-left: 2rem;
+            }
+        }
+
+        .block3-2 {
+            display: flex;
+            justify-content: end;
+            align-items: start;
+            width: 50%;
+            padding-top: 3rem;
+            padding-right: 7.5rem;
+
+            p {
+                margin: 1rem;
+
+            }
+
+            span {
+                font-size: 800;
+            }
+
+            .img-3-2 {
+                width: 80%;
+                height: 90%;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
                 }
             }
         }
@@ -274,11 +328,9 @@
                         margin-top: 0;
                         width: 100%;
                     }
-
                 }
-
                 .bloque-3 {
-                    img {
+                    picture {
                         height: 100vh;
                         width: 70%;
                         min-height: 300px;
@@ -305,6 +357,7 @@
                     padding: 0;
                     display: flex;
                     justify-content: center;
+
                     .cimg {
                         min-width: 300px;
                         width: 50vw;
@@ -317,11 +370,13 @@
                     flex-direction: column;
                     margin: 0;
                     padding: 0;
+
                     .cimg {
                         margin: 0;
                         width: 100vw;
                         min-width: 300px;
-                        p{
+
+                        p {
                             margin: 1rem;
                         }
                     }
@@ -343,15 +398,62 @@
                     display: flex;
                     flex-direction: column;
                     margin: 0;
-                    p{
+
+                    p {
                         margin-left: 1rem;
                     }
+
                     .cimg2-2 {
                         width: 100vw;
+
                         img {
                             object-fit: cover;
                             width: 100%;
                         }
+                    }
+                }
+            }
+        }
+
+        #block3 {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column-reverse;
+
+            .block3-1 {
+                width: 100%;
+                min-height: 60vh;
+
+                h3 {
+                    margin-top: 3rem;
+                    margin-left: 2rem;
+                    font-weight: 400;
+                }
+
+                p {
+                    margin-left: 2rem;
+
+                }
+
+                a {
+                    margin-left: 2rem;
+                }
+            }
+
+            .block3-2 {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                width: 100%;
+
+                .img-3-2 {
+
+                    width: 100%;
+
+                    img {
+                        width: 100%;
                     }
                 }
             }
