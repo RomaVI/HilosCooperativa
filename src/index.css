@@ -2,6 +2,11 @@
   scrollbar-width: none; 
   -ms-overflow-style: none; 
   list-style: none;
+  font-family: "Cormorant Garamond", serif,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.05rem;
+  font-weight: 800;
   text-decoration: none;
   a:-webkit-any-link {
     color: black;
@@ -30,4 +35,9 @@ body{
     font-size: 4rem;
   }
 
+}
+
+
+span{
+  font-size: 1rem;
 }

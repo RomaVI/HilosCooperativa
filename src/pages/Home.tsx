@@ -72,8 +72,8 @@ export function Home() {
                     </div>
 
                     <div className="bloque bloque-2">
-                        <p> "Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos productos de sumo cuidado y calidad a partir de los residuos que la tierra no puede consumir."</p>
-                        <p className='bloque-2p'> Loremmms .</p>
+                        <p> "Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos con productos del hombre para al tierra ."</p>
+                        <p className='bloque-2p'> Descubre, encuentra.</p>
                     </div>
 
 
@@ -116,7 +116,7 @@ export function Home() {
                             Los paneles y aislantes de textil reciclado destacan por su excepcional aislamiento acústico y térmico. Ya que por su estructura porosa no solo absorben el ruido de forma natural y son un excelente aislante térmico, sino que también son transpirables, regulando la humedad y previniendo el moho a diferencia de otros materiales.
                         </p>
                         <a href="">
-                            referent
+                            DESCUBRE MÁS
                         </a>
                     </div>
                     <div className="img2-2 animar-subida">
@@ -128,10 +128,7 @@ export function Home() {
                                 </picture>
                             </div>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
-                            <p>
-                                Exercitationem, corrupti libero magni iusto ipsum et obcaecati error fuga
+                                Nuestro aislante textil es separado, clasificado y seleccionado para asegurar el máximo confort térmico y acústico.
                             </p>
                         </div>
                     </div>
@@ -150,7 +147,6 @@ export function Home() {
                         <picture>
                             <img src={port4} alt="" />
                         </picture>
-                        <p><span>lorem </span> lorem dist nom lorem sert </p>
                         <p><span>lorem </span> lorem dist nom lorem sert </p>
                     </div>
                 </div>

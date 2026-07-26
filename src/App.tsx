@@ -88,7 +88,7 @@ function App() {
             </li>
             <li>
               <Link to="/map" onClick={toggleMenu}>
-                <span>PUNTOS DE VENTA</span>
+                <span>PUNTOS DE RECOLECCION</span>
               </Link>
             </li>
           </ul>

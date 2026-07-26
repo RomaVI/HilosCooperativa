@@ -75,13 +75,9 @@
 
                 p {
                     width: 40%;
-                    min-width: 40px;
+                    min-width: 400px;
                     text-align: initial;
                     margin-left: 1rem;
-
-                    font-family: "Times New Roman", Times, serif;
-                    font-weight: 600;
-                    font-size: 1rem;
                 }
             }
 
@@ -200,9 +196,6 @@
 
             .contextb22 {
                 margin: 7rem;
-                font-size: 1rem;
-                font-family: "Times New Roman", Times, serif;
-
                 span {
                     color: black;
                 }
@@ -269,7 +262,7 @@
             }
 
             span {
-                font-size: 800;
+                font-weight: 600px;
             }
 
             .img-3-2 {
@@ -419,11 +412,10 @@
             width: 100%;
             min-height: 100vh;
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column;
 
             .block3-1 {
                 width: 100%;
-                min-height: 60vh;
 
                 h3 {
                     margin-top: 3rem;
@@ -447,7 +439,7 @@
                 justify-content: start;
                 align-items: start;
                 width: 100%;
-
+                margin-bottom: 8rem;
                 .img-3-2 {
 
                     width: 100%;
