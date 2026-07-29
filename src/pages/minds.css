@@ -1,0 +1,73 @@
+#minds {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+
+    .BlockMinds {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+        
+        .mindstr {
+            width: 100%;
+            height: 100%; /* Asegura que todas las tarjetas midan lo mismo */
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.1);
+            overflow: hidden; /* Evita que la imagen se salga de los bordes curvos */
+            
+            img {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                /* 1. FIJAMOS EL ALTO DE LA IMAGEN */
+                /* También podrías usar: aspect-ratio: 1 / 1; para que sean cuadradas siempre */
+                object-fit: cover; /* Esto evita que la imagen se deforme, recortando lo que sobra */
+            }
+
+            .mindstxt {
+                display: flex;
+                flex-direction: column;
+                justify-content: start; /* Mejor 'start' para que el texto empiece siempre arriba */
+                align-items: start;
+                padding: 1rem; /* Le damos un poco de aire adentro */
+                
+                height: 7rem; /* 2. FIJAMOS EL ALTO DEL TEXTO */
+                overflow: hidden; /* Si el texto es muy largo, se corta y no rompe el diseño */
+
+                h2 {
+                    margin: 0 0 0.5rem 0; /* Un pequeño margen abajo del título */
+                    padding: 0;
+                    font-size: 1.1rem;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 1rem; /* Ojo: tenías font-family en vez de font-size en tu código original */
+                    color: rgb(112, 112, 112);
+                    text-align: start;
+                    
+                    /* Opcional: Esto hace que si el texto es muy largo, termine con "..." */
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4; /* Número de líneas que querés mostrar */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    #minds {
+        .BlockMinds {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        }
+    }
+}

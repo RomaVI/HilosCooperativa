@@ -78,7 +78,7 @@ function App() {
           <ul>
             <li>
               <Link to="/ayni-mondo" onClick={toggleMenu}>
-                <span>AYNI MONDO</span>
+                <span>AYNI HISTORIA</span>
               </Link>
             </li>
             <li>

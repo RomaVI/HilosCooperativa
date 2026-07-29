@@ -1,13 +1,16 @@
-import './producto.css'
-
-
+import './proyectos.css'
+import Com from "/comillas.svg";
 
 
 export  function Proy() {
     return (
-        <div className='espera'>
-            <p>En produccion</p>
-        </div>
+        <section id='proy'>
+        <h2>(Proyectos)</h2>
+            <p>
+                <span><img src={Com} alt="Comillas" /></span>
+                Detras de cada persona hay un proyecto.
+            </p>
+        </section>
     )
 
 }

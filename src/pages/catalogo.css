@@ -1,4 +1,4 @@
-#product {
+#catalogo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +21,7 @@
     }
 
     .catalCont {
-        width: 80%;
+        width: 50%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
@@ -39,13 +39,11 @@
             img {
                 width: 100%;
                 aspect-ratio: 1 / 1.2;
+                /* Define un alto fijo para todas. Puedes cambiar este valor */
                 object-fit: cover;
+                /* Mantiene la proporción sin deformar la imagen */
                 display: block;
-                cursor:pointer;
-                transition: filter 0.3s ease;
-                &:hover{
-                    filter: brightness(40%);
-                }
+                /* Evita un margen inferior fantasma que traen las imágenes por defecto */
             }
         }
     }

@@ -4,6 +4,7 @@ import port from '/placa1.png';
 import port2 from '/placa2.webp';
 import port3 from '/personal2.avif';
 import port4 from '/pr.webp';
+import com from '/comillas.svg';
 import vid1 from '/vid2.webm';
 
 export function Home() {
@@ -38,23 +39,18 @@ export function Home() {
     }, []);
     // 2. NUEVO: Efecto que controla el tiempo y los eventos
     useEffect(() => {
-        // Función que encoge el bloque al 100%
         const shrinkBlock = () => setIsWide(false);
-
-        // a) Temporizador: se encoge automáticamente a los 2000 milisegundos (2 segundos)
         const timer = setTimeout(shrinkBlock, 2000);
-
-        // b) Eventos: se encoge si el usuario hace clic o toca una tecla antes de los 2 segundos
         window.addEventListener('mousedown', shrinkBlock);
         window.addEventListener('keydown', shrinkBlock);
 
-        // Limpiamos la memoria cuando el componente se desmonta
+
         return () => {
             clearTimeout(timer);
             window.removeEventListener('mousedown', shrinkBlock);
             window.removeEventListener('keydown', shrinkBlock);
         };
-    }, []); // Los corchetes vacíos indican que esto se ejecuta solo una vez al cargar la página
+    }, []);
 
 
     return (
@@ -63,7 +59,7 @@ export function Home() {
                 className="struct"
                 style={{
                     width: (isWide) ? '200%' : '100%',
-                    transition: 'width 1.5s cubic-bezier(0.25, 1, 0.5, 1)' // Animación súper suave y premium
+                    transition: 'width 1.5s cubic-bezier(0.25, 1, 0.5, 1)' 
                 }}>
                 <div className="grid-galeria">
 
@@ -72,14 +68,14 @@ export function Home() {
                     </div>
 
                     <div className="bloque bloque-2">
-                        <p> "Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos con productos del hombre para al tierra ."</p>
+                        <p><span><img src={com} alt="" /></span>Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos productos de sumo cuidado y calidad a partir de los residuos que la tierra no puede consumir."</p>
                         <p className='bloque-2p'> Descubre, encuentra.</p>
                     </div>
 
 
 
                     <div className="bloque bloque-3">
-                        <p>1.</p>
+                        <p>(I.)</p>
                         <picture>
                             <img src={port3} alt="" />
                         </picture>
@@ -90,18 +86,18 @@ export function Home() {
             <section id='block2'>
                 <div className="block2-1">
                     <div className="img1">
-                        <p className='pim'>(3)</p>
+                        <p className='pim'>(.II)</p>
                         <div className="cimg">
                             <div className="cimgg">
                                 <picture>
                                     <img src={port} alt="" />
                                 </picture>
                             </div>
-                            <p>Las placas textiles cuentan con certificacion ecologica, contra el fuego y la formación de hongos; además de ser un material no tóxico e hipoalergénico.</p>
+                            <p><span><img src="" alt="" /></span>Las placas textiles cuentan con certificacion ecologica, contra el fuego y la formación de hongos; además de ser un material no tóxico e hipoalergénico.</p>
                         </div>
                     </div>
                     <div className="img2 animar-subida">
-                        <p className='pim'>(5)</p>
+                        <p className='pim'>(.V)</p>
                         <div className="cimg">
                             <div className="cimgg">
                                 <video src={vid1} autoPlay loop muted playsInline  ></video>
@@ -120,7 +116,7 @@ export function Home() {
                         </a>
                     </div>
                     <div className="img2-2 animar-subida">
-                        <p>(4)</p>
+                        <p>(IV.)</p>
                         <div className="cimg2-2">
                             <div className="cimgg2-2">
                                 <picture>
@@ -142,13 +138,36 @@ export function Home() {
                     <a href="">DESCUBRE MÁS</a>
                 </div>
                 <div className='block3-2'>
-                    <p>(6)</p>
+                    <p>(.VI)</p>
                     <div className='img-3-2'>
                         <picture>
                             <img src={port4} alt="" />
                         </picture>
                         <p><span>lorem </span> lorem dist nom lorem sert </p>
                     </div>
+                </div>
+            </section>
+            <section id='block4'>
+                <div className="grid-galeria4">
+
+                    <div className="bloque4 bloque4-1">
+                        <picture>
+                        <img src={port3} alt="" />
+                        </picture>
+                    </div>
+
+                    <div className="bloque4 bloque4-2">
+                        <p><span><img src={com} alt="" /></span>Ayni, del quechua, significa reciprocidad, ayuda y solidaridad. Por esto, con detalle y equilibrio, creamos productos de sumo cuidado y calidad a partir de los residuos que la tierra no puede consumir."</p>
+                        <p className='bloque4-2p'> Descubre, encuentra.</p>
+                    </div>
+
+
+
+                    <div className="bloque4 bloque4-3">
+                        <p>(VII.)</p>
+                            <video src={vid1} /*poster={port}*/ autoPlay loop muted playsInline className="video-fondo4"></video>
+                    </div>
+
                 </div>
             </section>
         </main>

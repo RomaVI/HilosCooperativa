@@ -7,7 +7,6 @@
     #block1 {
         width: 100%;
         height: 100vh;
-        /* Nota: aquí tenías 100vw, lo cambié a 100vh para que sea el alto de la pantalla */
         display: flex;
 
         .grid-galeria {
@@ -15,13 +14,8 @@
             height: 100%;
             display: grid;
 
-            /* Dividimos el ancho en 4 columnas iguales (25% cada una) */
             grid-template-columns: repeat(4, 1fr);
-
-            /* Dividimos el alto en 2 filas: la primera de 50% y la segunda de 50% */
             grid-template-rows: 50% 50%;
-
-            /* Sin espacios entre bloques ni bordes externos */
             gap: 0;
             padding: 0;
 
@@ -74,6 +68,13 @@
                 align-items: start;
 
                 p {
+                    span {
+                        img {
+                            width: 1rem;
+                            transform: translateY(-1rem);
+                        }
+                    }
+
                     width: 40%;
                     min-width: 400px;
                     text-align: initial;
@@ -101,7 +102,6 @@
                 /* 2. La imagen simplemente llena su contenedor */
                 img {
                     width: 100%;
-                    height: 100%;
                     object-fit: cover;
                     /* Opcional: evita que la imagen se estire feo si cambia la proporción */
                 }
@@ -173,6 +173,7 @@
                 .cimg {
                     width: 60%;
                     padding-bottom: 12rem;
+
                     .cimgg {
                         width: 100%;
                         overflow: hidden;
@@ -196,6 +197,7 @@
 
             .contextb22 {
                 margin: 7rem;
+
                 span {
                     color: black;
                 }
@@ -226,7 +228,7 @@
 
     #block3 {
         width: 100%;
-        min-height: 100vh;
+        margin-bottom: 8rem;
         display: flex;
 
         .block3-1 {
@@ -276,6 +278,108 @@
             }
         }
     }
+
+    #block4 {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        margin-bottom: 8rem;
+        .grid-galeria4 {
+            width: 100%;
+            height: 100%;
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 50% 50%;
+            gap: 0;
+            padding: 0;
+
+            .bloque4 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .bloque4-1 {
+                /* Ocupa desde la línea de columna 1 hasta la 3 (50%) */
+                grid-column: 1 / 3;
+                /* Ocupa desde la línea de fila 1 hasta la 3 (100% del alto) */
+                grid-row: 1 / 3;
+                overflow: hidden;
+                padding: 0;
+
+
+                picture {
+                    width: 100%;
+                    margin: 5rem;
+                    min-width: 250px;
+                    display: block;
+
+                }
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                p {
+                    margin: 1rem;
+                }
+
+            }
+
+            .bloque4-2 {
+                /* Ocupa desde la línea 3 hasta el final (50%) */
+                grid-column: 3 / 5;
+                grid-row: 1 / 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+
+                p {
+                    span {
+                        img {
+                            width: 1rem;
+                            transform: translateY(-1rem);
+                        }
+                    }
+
+                    width: 40%;
+                    min-width: 400px;
+                    text-align: initial;
+                    margin-left: 1rem;
+                }
+            }
+
+            .bloque4-3 {
+                grid-column: 3 / 5;
+                grid-row: 2 / 3;
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: end;
+                align-items: start;
+                margin-right: 1rem;
+                p{
+                    height: 100%;
+                    transform: translateX(-3rem);
+                    text-align: end;
+                }
+
+                .video-fondo4 {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    transform: translateY(3rem);
+                }
+
+            }
+        }
+    }
 }
 
 /* Clase base: el elemento está invisible y empujado hacia abajo */
@@ -298,15 +402,15 @@
 @media (max-width: 1000px) {
     .home-page {
         #block1 {
-            height: 100%;
+            width: 100%;
 
             .grid-galeria {
                 display: flex;
                 flex-direction: column;
 
                 .bloque-1 {
-                    height: 80vh;
-
+                    width: 100%;
+                    overflow: clip;
                 }
 
                 .bloque-2 {
@@ -314,7 +418,7 @@
 
                     p {
                         margin-top: 4rem;
-                        width: 100%;
+                        width: 50%;
                     }
 
                     .bloque-2p {
@@ -322,6 +426,7 @@
                         width: 100%;
                     }
                 }
+
                 .bloque-3 {
                     picture {
                         height: 100vh;
@@ -337,7 +442,7 @@
             width: 100vw;
             display: flex;
             flex-direction: column-reverse;
-
+            margin-top: 0;
             .block2-1 {
                 width: 100vw;
                 display: flex;
@@ -363,7 +468,7 @@
                     flex-direction: column;
                     margin: 0;
                     padding: 0;
-
+                    transform: translateY(5rem);
                     .cimg {
                         margin: 0;
                         width: 100vw;
@@ -410,26 +515,31 @@
 
         #block3 {
             width: 100%;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
-
+            margin-bottom: 0;
             .block3-1 {
                 width: 100%;
+
 
                 h3 {
                     margin-top: 3rem;
                     margin-left: 2rem;
+                    margin-right: 2rem;
                     font-weight: 400;
+                    text-align: center;
                 }
 
                 p {
                     margin-left: 2rem;
+                    margin-right: 2rem;
+                    text-align: center;
 
                 }
 
                 a {
                     margin-left: 2rem;
+                    margin-right: 2rem;
                 }
             }
 
@@ -439,7 +549,7 @@
                 justify-content: start;
                 align-items: start;
                 width: 100%;
-                margin-bottom: 8rem;
+
                 .img-3-2 {
 
                     width: 100%;
@@ -450,10 +560,45 @@
                 }
             }
         }
+
+        #block4 {
+            .bloque4-2 {
+                p {
+                    min-width: 400px;
+                }
+            }
+        }
     }
 
     .logo-central {
         display: none;
     }
 
+}
+
+@media (max-width: 800px) {
+    .home-page {
+        #block4 {
+            .grid-galeria4{
+                .bloque4-2 {
+                    p {
+                        min-width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 640px) {
+    .home-page {
+        #block4 {
+            .grid-galeria4{
+                .bloque4-2 {
+                    p {
+                        min-width: 250px;
+                    }
+                }
+            }
+        }
+    }
 }
